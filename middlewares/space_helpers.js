@@ -8,9 +8,8 @@ module.exports = (req, res, next) => {
 
   let finalizeReq = (space, role) => {
     if (role === "none") {
-      res.status(403).json({
-        "error": "access denied"
-      });
+      console.log("[MMS} FORBIDDEN");
+      res.status(403).json({"error": "access denied"});
     } else {
       req['space'] = space;
       req['spaceRole'] = role;
