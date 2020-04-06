@@ -290,6 +290,8 @@ var SpacedeckBoardArtifacts = {
   artifact_vector_svg: function(a) {
     var mtype = this.artifact_major_type(a);
 
+    console.log("[MMS] mtype: " + mtype);
+
     if (mtype != "vector" && mtype != "shape") return "";
 
     var shape = a.shape || "";
@@ -312,6 +314,8 @@ var SpacedeckBoardArtifacts = {
     svg += "style='margin-left:"+(-margin)+"px;margin-top:"+(-margin)+"px;stroke-width:"+a.stroke+";stroke:"+a.stroke_color+";"+fill+"'>";
     svg += path_svg;
     svg += "</svg>";
+
+    console.log("[MMS] svg: " + svg);
 
     return svg;
   },

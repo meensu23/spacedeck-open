@@ -103,7 +103,7 @@ app.use('/', require('./routes/root'));
 
 if (config.get('storage_local_path')) {
   app.use('/storage', serveStatic(config.get('storage_local_path')+"/"+config.get('storage_bucket'), {
-    maxAge: 24*3600
+    maxAge: 60*1000 //60s
   }));
 }
 

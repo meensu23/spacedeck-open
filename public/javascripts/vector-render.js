@@ -21,19 +21,27 @@ function vec2_angle(v) {
 }
 
 function render_vector_drawing(a, padding) {
+  console.log("[MMS] a: " + JSON.stringify(a) + ", padding: " + padding);
   var shape = a.shape || "";
   var path = [];
-  var p = a.control_points[0];
+  var control_points = a.control_points;
+  console.log("[MMS] typeof control_points:" + typeof control_points);
+  if (typeof control_points === 'string') {
+      control_points = JSON.parse(control_points);
+  }
+  var p = control_points[0];
 
   if (!p) return "";
+
 
   path.push("M" + (p.dx + padding) + "," + (p.dy + padding) + " ");
 
   if (shape.match("arrow")) {
-    var cps = a.control_points[0];
-    var cpe = a.control_points[1];
-    var cpm = a.control_points[2];
+    var cps = control_points[0];
+    var cpe = control_points[1];
+    var cpm = control_points[2];
     if (!cpm) cpm = cpe;
+    console.log("[MMS] cps: " + JSON.stringify(cps) + ", cpe: " + JSON.stringify(cpe) + ", cpm: " + JSON.stringify(cpm));
 
     var markerId = a._id;
 
@@ -55,17 +63,17 @@ function render_vector_drawing(a, padding) {
   }
   else if (false /*shape.match("scribble")*/) {
     var idx = 0;
-    while (idx < a.control_points.length - 1) {
-      var prevP = a.control_points[idx];
+    while (idx < control_points.length - 1) {
+      var prevP =control_points[idx];
       
-      if (a.control_points.length > idx + 1) {
-        var p = a.control_points[idx + 1];
+      if (control_points.length > idx + 1) {
+        var p = control_points[idx + 1];
       } else {
         var p = prevP;
       }
 
-      if (a.control_points.length > idx + 2) {
-        var nextP = a.control_points[idx + 2];
+      if (control_points.length > idx + 2) {
+        var nextP = control_points[idx + 2];
       } else {
         var nextP = p;
       }
@@ -109,8 +117,8 @@ function render_vector_drawing(a, padding) {
       idx += 1;
     }
   } else {
-    for (var idx=0; idx<a.control_points.length; idx++) {
-      var p = a.control_points[idx];
+    for (var idx=0; idx<control_points.length; idx++) {
+      var p = control_points[idx];
       var command = (idx==0) ? 'M' : 'L';
 
       path.push(command+(p.dx+padding)+','+(p.dy+padding));

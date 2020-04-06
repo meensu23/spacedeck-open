@@ -46,7 +46,8 @@ var roleMapping = {
 
 router.get('/png', function(req, res, next) {
   var triggered = new Date();
-  var s3_filename = "s" + req.space._id + "/" + "thumb_" + triggered.getTime() + ".jpg";
+  //var s3_filename = "s" + req.space._id + "/" + "thumb_" + triggered.getTime() + ".jpg";
+  var s3_filename = "s" + req.space._id + "/" + "thumb.jpg";
 
   if (!req.space.thumbnail_updated_at || req.space.thumbnail_updated_at < req.space.updated_at || !req.space.thumbnail_url) {
     db.Space.update({ thumbnail_updated_at: triggered }, {where : {"_id": req.space._id }});
