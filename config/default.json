@@ -2,7 +2,8 @@
   "team_name": "My Open Spacedeck",
   "contact_email": "support@example.org",
 
-  "endpoint": "http://localhost:9666",
+  "port": 8000,
+  "endpoint": "http://localhost:8000",
 
   "storage_region": "eu-central-1",
   //"storage_bucket": "sdeck-development",
@@ -23,7 +24,7 @@
   "phantom_api_secret": "very_secret_phantom_password",
 
   // Choose "console" or "smtp"
-  "mail_provider": "smtp",
+  "mail_provider": "console",
   "mail_smtp_host": "your.smtp.host",
   "mail_smtp_port": 465,
   "mail_smtp_secure": true,

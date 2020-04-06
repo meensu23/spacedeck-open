@@ -147,7 +147,9 @@ router.get('/s/:token', (req, res) => {
 });
 
 router.get('/spaces/:id', (req, res) => {
+  console.log('BEGIN Getting spaces');
   res.render('spacedeck', { title: 'Space' });
+  console.log('DONE Getting spaces');
 });
 
 module.exports = router;

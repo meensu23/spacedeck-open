@@ -34,6 +34,7 @@ module.exports = (req, res, next) => {
 
     if (req.user) {
       db.getUserRoleInSpace(space, req.user, function(newRole) {
+        console.log("[MMS] role: " + role + " newRole: " + newRole);
         if (newRole == "admin" && (role == "editor" || role == "viewer")) {
           finalizeReq(space, newRole);
         } else if (newRole == "editor" && (role == "viewer")) {
@@ -57,10 +58,7 @@ module.exports = (req, res, next) => {
     "_id": spaceId
   }}).then(function(space) {
 
-    //.populate("creator", userMapping)
-    //if (err) {
-    //  res.status(400).json(err);
-    //} else {
+    console.log('[MMS] space: ' + JSON.stringify(space));
 
     if (space) {
       if (space.access_mode == "public") {
@@ -93,6 +91,7 @@ module.exports = (req, res, next) => {
 
         if (req.user) {
           db.getUserRoleInSpace(space, req.user, function(role) {
+            console.log("[MMS] role: " + role);
             if (role == "none") {
               finalizeAnonymousLogin(space, req["spaceAuth"]);
             } else {

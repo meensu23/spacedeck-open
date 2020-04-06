@@ -79,14 +79,14 @@ router.get('/png', function(req, res, next) {
                 var oldPath = url.parse(oldUrl).pathname;
                 uploader.removeFile(oldPath, function(err, res) {});
               }
-              fs.unlink(local_path);
+              fs.unlinkSync(local_path);
             } catch (e) {
               console.error(e);
             }
           });
 
           try {
-            fs.unlink(localResizedFilePath);
+            fs.unlinkSync(localResizedFilePath);
           } catch (e) {
             console.error(e);
           }
@@ -115,7 +115,7 @@ router.get('/pdf', function(req, res, next) {
       res.status(201).json({
         url: url
       });
-      fs.unlink(local_path);
+      fs.unlinkSync(local_path);
     });
   }, (err) => {
     res.status(500).json({
@@ -218,7 +218,7 @@ router.get('/zip', function(req, res, next) {
             });
 
             try {
-              fs.unlink(outputPath);
+              fs.unlinkSync(outputPath);
             } catch (e) {
               console.error(e);
             }

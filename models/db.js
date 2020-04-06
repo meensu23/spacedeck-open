@@ -47,6 +47,7 @@ module.exports = {
     prefs_email_notifications: Sequelize.STRING,
     prefs_email_digest: Sequelize.STRING,
     created_at: {type: Sequelize.DATE, defaultValue: Sequelize.NOW},
+    confirmed_at: {type: Sequelize.DATE, defaultValue: Sequelize.NOW},
     updated_at: {type: Sequelize.DATE, defaultValue: Sequelize.NOW}
   }),
 
@@ -278,14 +279,15 @@ module.exports = {
 
   getUserRoleInSpace: (originalSpace, user, cb) => {
     originalSpace.path = [];
-    console.log("getUserRoleInSpace",originalSpace._id,user._id,user.home_folder_id);
+    console.log("[MMS] getUserRoleInSpace",originalSpace._id, user.home_folder_id, originalSpace.creator_id, user._id);
 
     if (originalSpace._id == user.home_folder_id || (originalSpace.creator_id && originalSpace.creator_id == user._id)) {
       cb("admin");
     } else {
       var findMembershipsForSpace = function(space, allMemberships, prevRole) {
+        console.log("[MMS] START findMembershipsForSpace");
         Membership.findAll({ where: {
-          "space": space._id
+          "space_id": space._id
         }}).then(function(parentMemberships) {
           var currentMemberships = parentMemberships.concat(allMemberships);
 
@@ -312,9 +314,13 @@ module.exports = {
               }
             });
 
+            console.log("[MMS] INVOKING callback with " + role);
             cb(role);
           }
         });
+        console.log("[MMS] DONE findMembershipsForSpace");
+        console.log("[MMS] INVOKING callback with " + prevRole);
+        cb(prevRole);
       };
       findMembershipsForSpace(originalSpace, [], "none");
     }

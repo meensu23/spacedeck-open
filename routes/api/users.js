@@ -75,7 +75,9 @@ router.post('/', function(req, res) {
             nickname: nickname,
             password_hash: hash,
             prefs_language: req.i18n.locale,
-            confirmation_token: token
+            //confirmation_token: token
+            confirmation_token: null,
+            confirmed_at: new Date()
           };
 
           db.User.create(u)
@@ -105,6 +107,7 @@ router.post('/', function(req, res) {
                           name: req.i18n.__("confirm_action")
                         }
                       });
+                      console.log('sendMail returned');
                     })
                     .error(err => {
                       res.status(400).json(err);
@@ -125,6 +128,19 @@ router.post('/', function(req, res) {
         res.status(400).json({"error":"user_email_already_used"});
       }
     })
+
+/*  db.User.findOne({where: {"email": email}}).then((user) => {
+    if (user) {
+        user.confirmation_token = null;
+        user.confirmed_at = new Date();
+        user.save(function(err, updatedUser) {
+          if(err) {
+            res.sendStatus(400);
+          } 
+        });
+    }
+  })
+  */
 });
 
 router.get('/current', function(req, res, next) {

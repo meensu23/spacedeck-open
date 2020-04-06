@@ -34,7 +34,8 @@ router.post('/', function(req, res, next) {
   if (req.spaceRole == "admin") {
     var attrs = req.body;
     attrs.space_id = req.space._id;
-    attrs.state = "pending";
+    // attrs.state = "pending";
+    attrs.state = "active";
     attrs._id = uuidv4();
     var membership = attrs;
     

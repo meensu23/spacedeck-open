@@ -122,7 +122,7 @@ module.exports = app;
 db.init();
 
 // START WEBSERVER
-const port = 9666;
+const port = config.get("port");
 
 const server = http.Server(app).listen(port, () => {
   
