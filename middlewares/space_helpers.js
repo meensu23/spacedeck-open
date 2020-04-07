@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
 
   let finalizeReq = (space, role) => {
     if (role === "none") {
-      console.log("[MMS} FORBIDDEN");
+      console.log("[MMS] FORBIDDEN");
       res.status(403).json({"error": "access denied"});
     } else {
       req['space'] = space;
@@ -22,7 +22,8 @@ module.exports = (req, res, next) => {
     var role = "none";
 
     if (spaceAuth && (spaceAuth === space.edit_hash)) {
-      role = "editor";
+      // role = "editor";
+      role = "admin"; // lets make guests also as admins
     } else {
       if (space.access_mode == "public") {
         role = "viewer";

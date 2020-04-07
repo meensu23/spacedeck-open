@@ -849,9 +849,13 @@ var SpacedeckSections = {
     },
 
     may_select: function(a) {
+      console.log("[MMS] a: " + JSON.stringify(a));
+      console.log("[MMS] active_space_role: " + this.active_space_role);
       if (!a) return false;
       if (!this.active_space) return false;
+      console.log("[MMS] active_space: " + JSON.stringify(this.active_space));
       
+
       if (this.active_space_role=="viewer" || (a.locked && this.active_space_role!="admin")) {
         return false;
       }
@@ -2024,6 +2028,8 @@ var SpacedeckSections = {
         evt.stopPropagation();
       }
 
+      console.log("[MMS] skip_formatting:" + this.skip_formatting);
+
       if (this.skip_formatting) return;
 
       if (cmd=='createlink') {
@@ -2042,7 +2048,7 @@ var SpacedeckSections = {
       if (!this.editing_artifact_id || cmd == "preciseFontSize" || cmd == "forecolor") {
         for (var i=0; i<selected.length; i++) {
           var a = selected[i];
-          var dom = $("<div>"+a.description+"</div>")[0];
+          var dom = $("<div><p>"+a.description+"</p></div>")[0];
           var el = dom.firstChild;
 
           do {

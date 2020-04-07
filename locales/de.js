@@ -52,7 +52,7 @@
 	"error_user_email_already_used": "Diese Email-Adresse ist bereits registriert.",
 	"support": "Spacedeck-Support",
 	"offline": "Verbindungsverlust. Mehr Infos hier.",
-	"error": "Entschuldigung, etwas ist schiefgegangen. Bitte kontaktiere support@spacedeck.com",
+	"error": "Entschuldigung, etwas ist schiefgegangen. Bitte kontaktiere msundaram5@bloomberg.net",
 	"welcome": "Willkommen",
 	"claim": "Dein digitales Whiteboard.",
 	"trynow": "Jetzt probieren.",

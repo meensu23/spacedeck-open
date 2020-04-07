@@ -52,7 +52,7 @@
 	"error_user_email_already_used": "Cette adresse email est déjà enregistré.",
 	"support": "Aide Spacedeck",
 	"offline": "Désolé , mais les serveurs Spacedeck ne peuvent pas être atteint pour le moment. Plus d' informations ici.",
-	"error": "Désolé, une erreur s'est produite. Veuillez contacter support@spacedeck.com",
+	"error": "Désolé, une erreur s'est produite. Veuillez contacter msundaram5@bloomberg.net",
 	"welcome": "Bienvenue",
 	"claim": "Le tableau blanc partagé pour tout le monde",
 	"trynow": "Essayez-le gratuitement",

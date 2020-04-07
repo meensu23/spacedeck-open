@@ -50,7 +50,7 @@
 	"error_user_email_already_used": "This email address is already in use.",
 	"support": "Spacedeck Support",
 	"offline": "Offline. Click for more.",
-	"error": "Sorry, but something went wrong. Please contact support@spacedeck.com",
+	"error": "Sorry, but something went wrong. Please contact msundaram5@bloomberg.net",
 	"welcome": "Welcome",
 	"claim": "Your digital Whiteboard.",
 	"trynow": "Try now.",
@@ -320,5 +320,6 @@
 	"follow_present": "Follow",
 	"mute_present": "Unfollow",
 	"follow_present_help": "If someone else is presenting this Space, the other members automatically follow the presentation. Switch following on or off with this button.",
-	"export": "export"
+	"export": "export",
+	"contact_email": "msundaram5@bloomberg.net"
 }
