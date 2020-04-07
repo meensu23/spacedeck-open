@@ -80,7 +80,8 @@ var SpacedeckSpaces = {
         delete localStorage['guest_nickname'];
       }
       this.guest_nickname = "";
-      location.reload();
+      //location.reload();
+      this.redirect_to("/logout");
     },
     ask_guestname: function(dft, cb) {
       smoke.prompt(__('what_is_your_name', "Spacedeck") , function(content) {

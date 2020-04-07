@@ -317,5 +317,6 @@
 	"more": "mehr",
 	"follow_present": "Folgen",
 	"mute_present": "Entfolgen",
-  "follow_present_help": "Wenn jemand den Space präsentiert, folgen die anderen Mitglieder automatisch der Präsentation. Mit diesem Knopf lässt sich das an- oder ausschalten."
+	"follow_present_help": "Wenn jemand den Space präsentiert, folgen die anderen Mitglieder automatisch der Präsentation. Mit diesem Knopf lässt sich das an- oder ausschalten.",
+    "contact_email": "msundaram5@bloomberg.net"
 }

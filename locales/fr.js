@@ -314,5 +314,6 @@
 	"more": "plus",
 	"follow_present": "Suivre",
 	"mute_present": "Pas suivre",
-	"follow_present_help": "follow_present_help"
+	"follow_present_help": "follow_present_help",
+    "contact_email": "msundaram5@bloomberg.net"
 }
